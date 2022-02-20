@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+body {
+  background-color: #E5E5E5;
+}
+
+.App .app__head {
+  position: absolute;
+  width: 1920px;
+  height: 56px;
+  left: 0px;
+  top: 0px;
+  background-color: #353D4B;
+}
+.App .app__left-panel {
+  position: absolute;
+  width: 280px;
+  height: 1024px;
+  left: 0px;
+  top: 56px;
+  background-color: #FFFFFF;
+}
+.App .app__dashboard {
+  margin-top: 56px;
+  margin-left: 280px;
+  height: 990px;
+  width: 1640px;
+}
+
+.dark-screen {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background-color: rgba(53, 61, 75, 0.2);
+}

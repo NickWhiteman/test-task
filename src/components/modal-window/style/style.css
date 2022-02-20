@@ -1,0 +1,191 @@
+@-webkit-keyframes openModal {
+  from {
+    margin-top: -100%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes openModal {
+  from {
+    margin-top: -100%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+.modal-background {
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-name: openModal;
+          animation-name: openModal;
+  margin-top: 0;
+  margin-left: 30%;
+  background-color: white;
+  position: absolute;
+  width: 608px;
+  height: 620px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1000;
+  pointer-events: auto;
+}
+.modal-background .modal__body {
+  width: 100%;
+  height: 100%;
+}
+.modal-background input {
+  background: #F9FAFC;
+  border: 2px solid #EBECEF;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 6px;
+  width: 480px;
+  height: 36px;
+}
+.modal-background label {
+  margin-bottom: 4px;
+  color: #818C99;
+}
+.modal-background .body__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 56px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  background-color: #353D4B;
+  border-start-end-radius: 10px;
+  border-start-start-radius: 10px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 36px;
+}
+.modal-background .body__form {
+  margin-top: 10px;
+  width: 608px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.modal-background .body__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.modal-background .header__name {
+  color: white;
+}
+.modal-background .header__close {
+  margin-right: 30px;
+}
+.modal-background .content__inputField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 28px;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+}
+.modal-background .footer__modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.modal-background .body__footer {
+  margin-top: 30px;
+  margin-right: 20;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  width: 608px;
+  height: 60px;
+  background-color: #F6F7F9;
+  border-end-start-radius: 10px;
+  border-end-end-radius: 10px;
+}
+.modal-background .body__footer button {
+  margin-right: 24px;
+}
+.modal-background .dashboard__button {
+  margin-right: 24px;
+}
+.modal-background .body__delete {
+  margin-top: 50px;
+  font-size: 16px;
+}
+.modal-background .footer__modal {
+  background-color: #F6F7F9;
+  margin-top: 60px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-end-start-radius: 10px;
+  border-end-end-radius: 10px;
+  width: 608px;
+}
+
+.delete {
+  height: 284px;
+}
+
+.fullHeight {
+  height: 620px;
+}
