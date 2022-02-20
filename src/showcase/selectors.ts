@@ -1,5 +1,5 @@
-import { IData, IShowcaseState } from "./types";
+import { Data, IShowcaseState } from "./types";
 
-export const selectorGetData  = (state: IShowcaseState): IData[] => {
+export const selectorGetData  = (state: IShowcaseState): Data[] => {
   return state.data;
 }

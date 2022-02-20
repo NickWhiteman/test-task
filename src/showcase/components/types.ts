@@ -1,4 +1,4 @@
 export type CartModel = {
-  photo: string
-  deleteHandler: () => void
+  title: string
+  url: string
 }

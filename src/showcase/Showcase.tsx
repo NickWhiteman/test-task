@@ -2,10 +2,10 @@ import './style/style.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
+import { ShowcaseAction } from "../saga/sagaActions"
 import { HeadShowcase } from "./components/head-showcase/HeadShowcase";
 import { selectGetCards, selectIsOpenModal } from "../components/modal-window/selectors";
 import { ModalWindow } from "../components/modal-window/ModalWindow";
-import { ShowcaseActions } from "./reducer";
 import { Data } from './types';
 
 export const Showcase: React.FC = () => {
@@ -14,24 +14,28 @@ export const Showcase: React.FC = () => {
   const cards: Data[] = useSelector(selectGetCards);
 
   useEffect(() => {
-    // dispatch(ShowcaseActions.getData());
-  }, [dispatch]);
+
+    dispatch(ShowcaseAction.getData());
+    
+  }, [ dispatch ]);
 
   return (
     <>
       <HeadShowcase />
       {
-        cards.map((cards) => (
+        cards &&
+        cards.map((card) => (
+          // cards.id === pageNumber &&
           <div className="card-wrapper">
             <div className="card__body">
               <div className="card-tittle">
                 {
-                  cards.title
+                  card.title
                 }
               </div>
               <div className="card-photo">
                 {
-                  cards.thumbnailUrl
+                  card.thumbnailUrl
                 }
               </div>
             </div>

@@ -9,8 +9,7 @@ function App() {
     <div className={`${isOpen &&  'dark-screen'}`}>
       <div className="App">
         <div className="app__head"></div>
-        <div className="app__left-panel"></div>
-        <div className="app__dashboard">
+        <div className="app__showcase">
           <Showcase />
         </div>
       </div>
