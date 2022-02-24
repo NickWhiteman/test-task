@@ -1,6 +1,6 @@
 $backColorPanel: #FFFFFF;
-$backColorHead: #353D4B;
-$backColorDashboard: #E5E5E5;
+$backColorHead: #87e1e4;
+$backColorDashboard: #fcc8c8;
 $darkScreenBackground: rgba(53, 61, 75, 0.2);
 
 * {
@@ -35,11 +35,11 @@ body {
         background-color: $backColorPanel;
     };
 
-    .app__dashboard {
-        margin-top: 56px;
-        margin-left: 280px;
+    .app__showcase {
+        margin-top: 76px;
+        margin-left: 40px;
         height: 990px;
-        width: 1920px - 280px;
+        width: 1920px;
     };
 };
 

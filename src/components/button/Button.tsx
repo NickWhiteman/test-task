@@ -12,21 +12,21 @@ export const Button: React.FC<IButtonProps> = ({
     case 'close-button':
       return (
         <button
-          className='close__button'
+          className='showcase_close__button'
           type='button'
           onClick={onClick}>{children}</button>
       );
     case 'button-link':
       return (
         <button
-          className={`showcase__button ${link ? link : ''}`}
+          className={`showcase__button${link ? `_${link}` : ''}`}
           type='button'
           onClick={onClick}>{icon}{children}</button>
       );
     case 'button-primary':
       return (
         <button
-          className='button primary'
+          className='showcase__button__primary'
           onClick={onClick}>{children}</button>
       );
     default:

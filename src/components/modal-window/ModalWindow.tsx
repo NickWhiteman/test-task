@@ -1,7 +1,6 @@
 import './style/style.css';
 import { useDispatch, useSelector } from "react-redux";
 
-import { ShowcaseActions } from "../../showcase/reducer";
 import { closeIcon } from "../button/iconButton";
 import { IModalProps } from "./types"
 import { selectIsDeleteMode } from "./selectors";

@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux"
-import { ShowcaseActions } from "../../showcase/reducer";
 import { Button } from "../button/Button";
 
 export const DeleteConfirm: React.FC = () => {
