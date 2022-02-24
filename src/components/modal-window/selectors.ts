@@ -1,4 +1,5 @@
 import { IShowcaseState } from "../../showcase/types";
+import { IRootState } from "../../store";
 
 export const selectIsOpenModal = (state: IShowcaseState) => 
   state.isOpenModal;
@@ -9,5 +10,5 @@ export const selectDeleteId = (state: IShowcaseState) =>
 export const selectIsDeleteMode = (state: IShowcaseState) =>
   state.isDelete;
 
-export const selectGetCards = (state: IShowcaseState) =>
-  state.data;
+export const selectGetCards = (state: IRootState) =>
+  state.ShowcaseStore.data;

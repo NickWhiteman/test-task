@@ -4,43 +4,42 @@ $dashboardButtonBackground: #4587ED;
 $linkButtonBackground: rgba(228, 229, 232, 1);
 $linkTextColor: rgba(109, 120, 133, 1);
 
-.row__button {
-    width: 32px;
-    height: 32px;
+.showcase__button_link {
+    width: 159px;
+    height: 45px;
     margin-right: 16px;
     text-align: center;
-    padding: 4px  4px 0 4px;
+    margin: 10px 10px 10px 10px;
     border: none;
     border-radius: 6px;
-    color: $rowButtonColorIcon;
-    background-color: rowButtonBackground;
+    color: $linkTextColor;
+    background-color: $rowButtonBackground;
 }
 
-.dashboard__button {
+.showcase__button__primary {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 159px;
-    height: 36px;
+    height: 45px;
     color: white;
     background-color: $dashboardButtonBackground;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-family: Roboto;
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
     line-height: 20px;
+    margin: 10px 10px 10px 10px
 }
 
-.form__button {
+.showcase_close__button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 159px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     color: white;
-    background-color: $dashboardButtonBackground;
+    background-color: transparent;
     border: none;
     border-radius: 8px;
     font-family: Roboto;

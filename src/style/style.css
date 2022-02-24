@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #E5E5E5;
+  background-color: #fcc8c8;
 }
 
 .App .app__head {
@@ -17,7 +17,7 @@ body {
   height: 56px;
   left: 0px;
   top: 0px;
-  background-color: #353D4B;
+  background-color: #87e1e4;
 }
 .App .app__left-panel {
   position: absolute;
@@ -27,11 +27,11 @@ body {
   top: 56px;
   background-color: #FFFFFF;
 }
-.App .app__dashboard {
-  margin-top: 56px;
-  margin-left: 280px;
+.App .app__showcase {
+  margin-top: 76px;
+  margin-left: 40px;
   height: 990px;
-  width: 1640px;
+  width: 1920px;
 }
 
 .dark-screen {
