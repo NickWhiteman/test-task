@@ -3,6 +3,7 @@ $backColor: #d4e8e9;
 .showcase-cards{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card-wrapper {
@@ -16,9 +17,9 @@ $backColor: #d4e8e9;
     margin-right: 25px;
 
     .card-body{
-        margin: 35px 10px 0px 10px;
-        display: flex;
-        flex-wrap: wrap;
+        margin: 5px 10px 0px 10px;
+        display: grid;
+        grid-template-rows: 30% 70%;
         justify-content: center;
     
         .card-title {
@@ -28,7 +29,7 @@ $backColor: #d4e8e9;
         }
 
         .card-photo {
-            margin-top: 10px;
+            margin: 0 auto;
         }
     }
 }

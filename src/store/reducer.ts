@@ -31,7 +31,7 @@ export const ShowcaseReducer = (
       };
     case IS_LOADING:
       return {
-        ...state, isLoading: action.payload
+        ...state, isLoading: !state.isLoading
       };
     case IS_DELETE:
       return {

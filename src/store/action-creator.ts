@@ -19,16 +19,16 @@ export type ShowcaseActions =
   | ReturnType<typeof pageNumberActions>
 
 
-export const getDataActions = ( data: Data[] ) =>
+export const getDataActions = (data: Data[]) =>
   ({
     type: GET_DATA,
     payload: data,
   } as const);
   
-export const isLoadingActions = ( isLoading: boolean ) =>
+export const isLoadingActions = () =>
   ({
     type: IS_LOADING,
-    payload: isLoading,
+    payload: null,
   } as const);
 
 export const isOpenModalActions = (isOpenModal: boolean) =>

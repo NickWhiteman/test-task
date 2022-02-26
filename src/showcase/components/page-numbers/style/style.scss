@@ -1,7 +1,8 @@
 .page-numbers {
-    margin-left: 50%;
-    
-    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50px;
 }
 
 .page-number {

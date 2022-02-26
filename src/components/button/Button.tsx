@@ -1,10 +1,9 @@
-import { IButtonProps } from "./types";
 import './style/style.css';
+import { IButtonProps } from "./types";
 
 export const Button: React.FC<IButtonProps> = ({
   mode,
   children,
-  icon,
   link,
   onClick
 }) => {
@@ -21,7 +20,7 @@ export const Button: React.FC<IButtonProps> = ({
         <button
           className={`showcase__button${link ? `_${link}` : ''}`}
           type='button'
-          onClick={onClick}>{icon}{children}</button>
+          onClick={onClick}>{children}</button>
       );
     case 'button-primary':
       return (

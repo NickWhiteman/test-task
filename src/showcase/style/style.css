@@ -4,6 +4,9 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .card-wrapper {
@@ -17,12 +20,11 @@
   margin-right: 25px;
 }
 .card-wrapper .card-body {
-  margin: 35px 10px 0px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  margin: 5px 10px 0px 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 30% 70%;
+  grid-template-rows: 30% 70%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -33,5 +35,5 @@
   margin-bottom: 10px;
 }
 .card-wrapper .card-body .card-photo {
-  margin-top: 10px;
+  margin: 0 auto;
 }

@@ -12,55 +12,27 @@ body {
 }
 
 .App {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 50% 50%;
-  grid-template-rows: 50% 50%;
-  -ms-grid-columns: 50% 50%;
-  grid-template-columns: 50% 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-height: 97vh;
-}
-
-.App > *:nth-child(1) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-}
-
-.App > *:nth-child(2) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-}
-
-.App > *:nth-child(3) {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-}
-
-.App > *:nth-child(4) {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
 }
 .App .app__head {
   position: absolute;
-  width: 1920px;
+  max-width: 1920px;
   height: 56px;
   left: 0px;
   top: 0px;
   background-color: #87e1e4;
 }
-.App .app__left-panel {
-  position: absolute;
-  width: 280px;
-  height: 1024px;
-  left: 0px;
-  top: 56px;
-  background-color: #FFFFFF;
-}
 .App .app__showcase {
   margin-top: 76px;
   margin-left: 40px;
   height: 990px;
-  width: 1920px;
+  max-width: 1920px;
 }
 
 .dark-screen {

@@ -3,6 +3,9 @@ import { IRootState } from "../../store";
 export const selectIsOpenModal = (state: IRootState) => 
   state.ShowcaseStore.isOpenModal;
 
+export const selectIsLoading = (state: IRootState) => 
+  state.ShowcaseStore.isLoading;
+
 export const selectDeleteId = (state: IRootState) =>
   state.ShowcaseStore.cardForDeleted;
 
