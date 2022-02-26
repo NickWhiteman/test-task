@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { Button } from "../../../components/button/Button";
-import { pluseIcon } from "../../../components/button/iconButton";
 import './style/style.css';
 
 export const HeadShowcase: React.FunctionComponent = () => {

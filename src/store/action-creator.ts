@@ -1,10 +1,12 @@
-import { Data } from "../showcase/types";
+import { Data } from "./types";
 import {
   CARDS_FOR_DELETED,
   GET_DATA,
   IS_DELETE,
   IS_LOADING,
-  IS_OPEN_MODAL
+  IS_OPEN_MODAL,
+  PAGE_NUMBER,
+  PROCESSED_DATA
 } from "./action-type";
 
 export type ShowcaseActions =
@@ -13,6 +15,8 @@ export type ShowcaseActions =
   | ReturnType<typeof isOpenModalActions>
   | ReturnType<typeof isDeleteActions>
   | ReturnType<typeof cardsForDeletedActions>
+  | ReturnType<typeof processedDataActions>
+  | ReturnType<typeof pageNumberActions>
 
 
 export const getDataActions = ( data: Data[] ) =>
@@ -44,5 +48,16 @@ export const cardsForDeletedActions = (cardId: number) =>
     type: CARDS_FOR_DELETED,
     payload: cardId,
   } as const);
-  
 
+export const processedDataActions = (data: Data[]) =>
+  ({
+    type: PROCESSED_DATA,
+    payload: data,
+  } as const);
+
+export const pageNumberActions = (pageNumber: number) =>
+  ({
+    type: PAGE_NUMBER,
+    payload: pageNumber,
+  } as const);
+  

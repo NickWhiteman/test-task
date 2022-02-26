@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from 'redux';
-import { IShowcaseState } from '../showcase/types';
+import { IShowcaseState } from './types';
 import { ShowcaseReducer } from './reducer';
 
 export interface IRootState {

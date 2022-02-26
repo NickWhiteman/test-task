@@ -1,0 +1,14 @@
+.page-numbers {
+  margin-left: 50%;
+}
+
+.page-number {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.page-number_current {
+  color: #ad2424;
+  padding-left: 10px;
+  padding-right: 10px;
+}
