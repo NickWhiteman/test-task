@@ -1,4 +1,4 @@
-$modalHeadColor: #353D4B;
+$modalHeadColor: #36c0b9;
 $backgroundFooter: #F6F7F9;
 $labelColor: #818C99;
 
@@ -34,20 +34,6 @@ $labelColor: #818C99;
         height: 100%;
     };
 
-    input {
-        background: #F9FAFC;
-        border: 2px solid #EBECEF;
-        box-sizing: border-box;
-        border-radius: 6px;
-        width: 480px;
-        height: 36px;
-    };
-
-    label {
-        margin-bottom: 4px;
-        color: $labelColor;
-    };
-
     .body__header {
         display: flex;
         justify-content: space-between;
@@ -62,14 +48,6 @@ $labelColor: #818C99;
         margin-bottom: 36px;
     };
 
-    .body__form {
-        margin-top: 10px;
-        width: 608px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     .body__content {
         display: flex;
         flex-direction: column;
@@ -82,7 +60,7 @@ $labelColor: #818C99;
     };
 
     .header__close {
-        margin-right: 30px;
+        margin-right: 15px;
     };
 
     .content__inputField {

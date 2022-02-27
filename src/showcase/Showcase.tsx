@@ -66,8 +66,8 @@ export const Showcase: React.FC = () => {
   };
 
   const openModal = (id: number) => {
-    dispatch(isOpenModalActions(true));
     dispatch(cardIdActions(id));
+    dispatch(isOpenModalActions(!!id));
   }
   
   if(isLoading) return  <Loader />

@@ -28,8 +28,8 @@ export const DeleteConfirm: React.FC = () => {
         <h3>Удалить {`карточку id ${cardId}?`}?</h3>
       </div>
       <div className="footer__modal">
-        <Button mode='button' link='link' onClick={onClose}>Отмена</Button>
-        <Button mode='button' onClick={() => onDelete()}>Удалить</Button>
+        <Button mode='button-link' link='link' onClick={onClose}>Отмена</Button>
+        <Button mode='button-primary' onClick={() => onDelete()}>Удалить</Button>
       </div>
     </>
   )
