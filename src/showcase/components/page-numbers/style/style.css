@@ -8,7 +8,8 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin-top: 50px;
+  margin-top: 25px;
+  cursor: default;
 }
 
 .page-number {

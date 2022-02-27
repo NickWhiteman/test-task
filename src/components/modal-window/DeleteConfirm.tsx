@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 
-import { isOpenModalActions, cardsForDeletedActions, isDeleteActions, getDataActions } from "../../store/action-creator";
+import { isDeleteActions, getDataActions } from "../../store/action-creator";
 import { Button } from "../button/Button";
 import { selectDeleteId, selectGetData } from "../../store/selectors";
 import { deletedData } from "../../helpers/helpers";
@@ -25,7 +25,7 @@ export const DeleteConfirm: React.FC = () => {
   return (
     <>
       <div className='body__delete'>
-        <h3>Удалить {`карточку id ${cardId}?`}?</h3>
+        <h3>Удалить {`карточку id ${cardId}?`}</h3>
       </div>
       <div className="footer__modal">
         <Button mode='button-link' link='link' onClick={onClose}>Отмена</Button>

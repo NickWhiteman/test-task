@@ -1,4 +1,8 @@
 import { Data } from "../store/types";
 
-export const deletedData = (id: number, data: Data[]) => 
-  data.filter(data => data.id !== id);
+export const deletedData = (id: number, data: Data[]) => {
+  return data.filter((card) => {
+    if (card.id !== id)
+      return card
+  })
+}

@@ -26,7 +26,7 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
 
   useEffect(() => {
     dataOnPage();
-  },[ currentPage ]);
+  },[ currentPage, dataForPage.length ]);
 
   const dataOnPage = () => {
     let arrayDataForPage: Data[] = []; // массив готовых элементов
@@ -40,7 +40,7 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
     } else {
       arrayDataForPage = dataForPage.filter(
         (data, index) =>
-        currentPage <= index
+          currentPage <= index
           && index <= currentPage + 9
       );
     }

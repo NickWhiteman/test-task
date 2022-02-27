@@ -2,7 +2,6 @@ import "./style/style.css";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { HeadShowcase } from "./components/head-showcase/HeadShowcase";
 import {
   selectGetCardsData,
   selectGetData,
@@ -19,7 +18,6 @@ import {
   isDeleteActions,
   isLoadingActions,
   isOpenModalActions,
-  processedDataActions,
 } from "../store/action-creator";
 import { ModalWindow } from "../components/modal-window/ModalWindow";
 import { Data } from "../store/types";
@@ -38,8 +36,6 @@ export const Showcase: React.FC = () => {
   const isDelete = useSelector(selectIsDeleteMode);
   const cards: Data[] = useSelector(selectGetCardsData);
   const dataAll: Data[] = useSelector(selectGetData);
-  const deletedCard = useSelector(selectDeleteId);
-  const pageNumber = useSelector(selectPageNumber);
 
   useEffect(() => {
     dispatch(isLoadingActions());
@@ -73,7 +69,6 @@ export const Showcase: React.FC = () => {
   if(isLoading) return  <Loader />
   return (
     <>
-      <HeadShowcase />
       <div className="showcase-cards">
         {
           isDelete &&

@@ -13,7 +13,7 @@ export const Card: React.FC = () => {
     <>
       <div className="body__content__card-wrapper">
         <div className="body__content__card__body">
-          <div className="body__content__card-tittle">
+          <div className="body__content__card-title">
             {
               dataItem?.title
             }
