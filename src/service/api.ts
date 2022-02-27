@@ -1,5 +1,5 @@
 import { URL } from "../showcase/const";
-import { Data } from "../showcase/types";
+import { Data } from "../store/types";
 
 export const apiGetData = async () => {
   let returnData: Data[] = []

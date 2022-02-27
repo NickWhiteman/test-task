@@ -1,10 +1,13 @@
-import { Data } from "../showcase/types";
+import { Data } from "./types";
 import {
   CARDS_FOR_DELETED,
+  CARD_ID,
   GET_DATA,
   IS_DELETE,
   IS_LOADING,
-  IS_OPEN_MODAL
+  IS_OPEN_MODAL,
+  PAGE_NUMBER,
+  PROCESSED_DATA
 } from "./action-type";
 
 export type ShowcaseActions =
@@ -13,18 +16,22 @@ export type ShowcaseActions =
   | ReturnType<typeof isOpenModalActions>
   | ReturnType<typeof isDeleteActions>
   | ReturnType<typeof cardsForDeletedActions>
+  | ReturnType<typeof processedDataActions>
+  | ReturnType<typeof pageNumberActions>
+  | ReturnType<typeof cardIdActions>
 
 
-export const getDataActions = ( data: Data[] ) =>
+
+export const getDataActions = (data: Data[]) =>
   ({
     type: GET_DATA,
     payload: data,
   } as const);
   
-export const isLoadingActions = ( isLoading: boolean ) =>
+export const isLoadingActions = () =>
   ({
     type: IS_LOADING,
-    payload: isLoading,
+    payload: null,
   } as const);
 
 export const isOpenModalActions = (isOpenModal: boolean) =>
@@ -44,5 +51,22 @@ export const cardsForDeletedActions = (cardId: number) =>
     type: CARDS_FOR_DELETED,
     payload: cardId,
   } as const);
-  
 
+export const processedDataActions = (data: Data[]) =>
+  ({
+    type: PROCESSED_DATA,
+    payload: data,
+  } as const);
+
+export const pageNumberActions = (pageNumber: number) =>
+  ({
+    type: PAGE_NUMBER,
+    payload: pageNumber,
+  } as const);
+  
+export const cardIdActions = (id: number) =>
+  ({
+    type: CARD_ID,
+    payload: id
+  } as const);
+    

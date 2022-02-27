@@ -11,27 +11,28 @@ body {
   background-color: #fcc8c8;
 }
 
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 97vh;
+}
 .App .app__head {
   position: absolute;
-  width: 1920px;
+  max-width: 1920px;
   height: 56px;
   left: 0px;
   top: 0px;
   background-color: #87e1e4;
 }
-.App .app__left-panel {
-  position: absolute;
-  width: 280px;
-  height: 1024px;
-  left: 0px;
-  top: 56px;
-  background-color: #FFFFFF;
-}
 .App .app__showcase {
   margin-top: 76px;
   margin-left: 40px;
   height: 990px;
-  width: 1920px;
+  max-width: 1920px;
 }
 
 .dark-screen {

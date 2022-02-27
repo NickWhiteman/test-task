@@ -8,7 +8,10 @@ export type Data = {
 
 export interface IShowcaseState {
   data: Data[]
-  cardForDeleted?: number
+  processedData: Data[]
+  pageNumber: number
+  cardForDeleted: number
+  idCard: number
   isOpenModal: boolean
   isLoading: boolean
   isDelete: boolean

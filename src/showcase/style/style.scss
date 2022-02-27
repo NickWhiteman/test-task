@@ -1,0 +1,35 @@
+$backColor: #d4e8e9;
+
+.showcase-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-wrapper {
+    border: 4px solid #d4e8e9;
+    border-radius: 20px;
+    width: 250px;
+    height: 300px;
+    background-color: $backColor;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+    .card-body{
+        margin: 5px 10px 0px 10px;
+        display: grid;
+        grid-template-rows: 30% 70%;
+        justify-content: center;
+    
+        .card-title {
+            text-align: center;
+            color: rgb(85, 69, 69);
+            margin-bottom: 10px;
+        }
+
+        .card-photo {
+            margin: 0 auto;
+        }
+    }
+}

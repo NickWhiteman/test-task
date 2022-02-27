@@ -1,0 +1,23 @@
+.page-numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 50px;
+}
+
+.page-number {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.page-number_current {
+  color: #ad2424;
+  padding-left: 10px;
+  padding-right: 10px;
+}

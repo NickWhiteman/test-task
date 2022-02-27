@@ -1,51 +1,119 @@
-import './style/style.css';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import "./style/style.css";
+import { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { HeadShowcase } from "./components/head-showcase/HeadShowcase";
-import { selectGetCards, selectIsOpenModal } from "../components/modal-window/selectors";
+import {
+  selectGetCardsData,
+  selectGetData,
+  selectIsOpenModal,
+  selectPageNumber,
+  selectIsLoading,
+  selectIsDeleteMode,
+  selectDeleteId,
+} from "../store/selectors";
+import {
+  cardIdActions,
+  cardsForDeletedActions,
+  getDataActions,
+  isDeleteActions,
+  isLoadingActions,
+  isOpenModalActions,
+  processedDataActions,
+} from "../store/action-creator";
 import { ModalWindow } from "../components/modal-window/ModalWindow";
-import { Data, IShowcaseState } from './types';
-import { getDataActions } from '../store/action-creator';
-import { URL } from "../showcase/const";
-import { apiGetData } from '../service/api';
+import { Data } from "../store/types";
+import { apiGetData } from "../service/api";
+import { PageNumbers } from "./components/page-numbers/PageNumbers";
+import { Loader } from "./components/loader/Loader";
+import { Button } from "../components/button/Button";
+import { bucketIcon } from "../components/button/iconButton";
+import { Card } from "./components/card/Card";
+import { DeleteConfirm } from "../components/modal-window/DeleteConfirm";
 
 export const Showcase: React.FC = () => {
   const dispatch = useDispatch();
-  // const isOpen = useSelector(selectIsOpenModal);
-  const cards: Data[] = useSelector((selectGetCards));
-  
+  const isLoading = useSelector(selectIsLoading);
+  const isOpen = useSelector(selectIsOpenModal);
+  const isDelete = useSelector(selectIsDeleteMode);
+  const cards: Data[] = useSelector(selectGetCardsData);
+  const dataAll: Data[] = useSelector(selectGetData);
+  const deletedCard = useSelector(selectDeleteId);
+  const pageNumber = useSelector(selectPageNumber);
+
   useEffect(() => {
-
+    dispatch(isLoadingActions());
     const data = apiGetData();
-    data.then(
-      (data: Data[]) =>
-        dispatch(getDataActions(data))
-    )
+    data.then((data: Data[]) => {
+      dispatch(getDataActions(data));
+      dispatch(isLoadingActions());
+    });
+  }, []);
 
-  }, [ dispatch ]);
+  const pageCounter = useCallback(() => {
+    const countPage = [];
+    for (let i = 0; i <= dataAll.length / 10; i++) {
+      countPage.push(i);
+    }
+    return countPage;
+  }, [dataAll.length]);
+
+  const listPageNumbers = pageCounter();
+
+  const deleteHandler = (idCard: number) => {
+    dispatch(cardsForDeletedActions(idCard));
+    dispatch(isDeleteActions(!!idCard));    
+  };
+
+  const openModal = (id: number) => {
+    dispatch(isOpenModalActions(true));
+    dispatch(cardIdActions(id));
+  }
   
-  
-  console.log(cards);
+  if(isLoading) return  <Loader />
   return (
     <>
       <HeadShowcase />
-      {
-        cards &&
-        cards.map((card, index) => (
-          // cards.id === pageNumber &&
-          <div key={ `card_${index}` } className="card-wrapper">
-            <div className="card__body">
-              <div className="card-tittle">
-                {
-                  card.title
-                }
+      <div className="showcase-cards">
+        {
+          isDelete &&
+            <ModalWindow
+              modal={
+                <DeleteConfirm />
+              } />
+        }
+        {
+          isOpen &&
+            <ModalWindow
+              modal={
+                <Card />
+              } />
+        }
+        {
+          cards.map((card, index) => (
+            <div
+              key={`card_${index}`}
+              className="card-wrapper">
+              <Button
+                mode="close-button"
+                children={bucketIcon}
+                onClick={() => deleteHandler(card.id)}
+              />
+              <div
+                className="card-body"
+                onClick={() => openModal(card.id)}>
+                <div className="card-title">{card.title}</div>
+                <img
+                  className="card-photo"
+                  alt="image_cart"
+                  src={card.thumbnailUrl}
+                />
               </div>
-              <img className="card-photo" src={ card.thumbnailUrl }/>
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
+      <PageNumbers numberPages={listPageNumbers} />
     </>
-  )
+  );
 };

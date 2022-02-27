@@ -17,29 +17,24 @@ body {
 };
 
 .App {
+    display: flex;
+    justify-content: center;
+    min-height: 97vh;
+
     .app__head {
         position: absolute;
-        width: 1920px;
+        max-width: 1920px;
         height: 56px;
         left: 0px;
         top: 0px;
         background-color: $backColorHead;
     };
 
-    .app__left-panel {
-        position: absolute;
-        width: 280px;
-        height: 1024px;
-        left: 0px;
-        top: 56px;
-        background-color: $backColorPanel;
-    };
-
     .app__showcase {
         margin-top: 76px;
         margin-left: 40px;
         height: 990px;
-        width: 1920px;
+        max-width: 1920px;
     };
 };
 
