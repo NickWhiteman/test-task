@@ -9,12 +9,16 @@ import {
   selectIsOpenModal,
   selectPageNumber,
   selectIsLoading,
-} from "../components/modal-window/selectors";
+  selectIsDeleteMode,
+  selectDeleteId,
+} from "../store/selectors";
 import {
+  cardIdActions,
   cardsForDeletedActions,
   getDataActions,
   isDeleteActions,
   isLoadingActions,
+  isOpenModalActions,
   processedDataActions,
 } from "../store/action-creator";
 import { ModalWindow } from "../components/modal-window/ModalWindow";
@@ -24,13 +28,17 @@ import { PageNumbers } from "./components/page-numbers/PageNumbers";
 import { Loader } from "./components/loader/Loader";
 import { Button } from "../components/button/Button";
 import { bucketIcon } from "../components/button/iconButton";
+import { Card } from "./components/card/Card";
+import { DeleteConfirm } from "../components/modal-window/DeleteConfirm";
 
 export const Showcase: React.FC = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  // const isOpen = useSelector(selectIsOpenModal);
+  const isOpen = useSelector(selectIsOpenModal);
+  const isDelete = useSelector(selectIsDeleteMode);
   const cards: Data[] = useSelector(selectGetCardsData);
-  const dataForPageNumber: Data[] = useSelector(selectGetData);
+  const dataAll: Data[] = useSelector(selectGetData);
+  const deletedCard = useSelector(selectDeleteId);
   const pageNumber = useSelector(selectPageNumber);
 
   useEffect(() => {
@@ -40,21 +48,27 @@ export const Showcase: React.FC = () => {
       dispatch(getDataActions(data));
       dispatch(isLoadingActions());
     });
-  }, [dispatch]);
+  }, []);
 
   const pageCounter = useCallback(() => {
     const countPage = [];
-    for (let i = 0; i <= dataForPageNumber.length / 10; i++) {
+    for (let i = 0; i <= dataAll.length / 10; i++) {
       countPage.push(i);
     }
     return countPage;
-  }, [dataForPageNumber.length]);
+  }, [dataAll.length]);
 
   const listPageNumbers = pageCounter();
 
   const deleteHandler = (idCard: number) => {
     dispatch(cardsForDeletedActions(idCard));
+    dispatch(isDeleteActions(!!idCard));    
   };
+
+  const openModal = (id: number) => {
+    dispatch(isOpenModalActions(true));
+    dispatch(cardIdActions(id));
+  }
   
   if(isLoading) return  <Loader />
   return (
@@ -62,14 +76,32 @@ export const Showcase: React.FC = () => {
       <HeadShowcase />
       <div className="showcase-cards">
         {
+          isDelete &&
+            <ModalWindow
+              modal={
+                <DeleteConfirm />
+              } />
+        }
+        {
+          isOpen &&
+            <ModalWindow
+              modal={
+                <Card />
+              } />
+        }
+        {
           cards.map((card, index) => (
-            <div key={`card_${index}`} className="card-wrapper">
+            <div
+              key={`card_${index}`}
+              className="card-wrapper">
               <Button
                 mode="close-button"
                 children={bucketIcon}
                 onClick={() => deleteHandler(card.id)}
               />
-              <div className="card-body">
+              <div
+                className="card-body"
+                onClick={() => openModal(card.id)}>
                 <div className="card-title">{card.title}</div>
                 <img
                   className="card-photo"

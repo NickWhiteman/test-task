@@ -1,4 +1,3 @@
 export interface IModalProps {
-  mode: string
-  cardId?: number
+  modal: JSX.Element
 };

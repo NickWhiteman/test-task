@@ -2,6 +2,7 @@ import { IShowcaseState } from "./types";
 import { ShowcaseActions } from "./action-creator";
 import {
   CARDS_FOR_DELETED,
+  CARD_ID,
   GET_DATA,
   IS_DELETE,
   IS_LOADING,
@@ -14,7 +15,8 @@ const initialState: IShowcaseState = {
   data: [],
   processedData: [],
   pageNumber: 0,
-  cardForDeleted: undefined,
+  cardForDeleted: 0,
+  idCard: 0,
   isLoading: false,
   isDelete: false,
   isOpenModal: false
@@ -29,6 +31,10 @@ export const ShowcaseReducer = (
       return {
         ...state, data: action.payload
       };
+    case CARD_ID:
+      return {
+        ...state, idCard: action.payload
+      }
     case IS_LOADING:
       return {
         ...state, isLoading: !state.isLoading

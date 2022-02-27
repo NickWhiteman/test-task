@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectGetData } from "../../../components/modal-window/selectors";
+import { selectGetData } from "../../../store/selectors";
 import { processedDataActions } from "../../../store/action-creator";
 import { Data } from "../../../store/types";
 

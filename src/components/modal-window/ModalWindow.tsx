@@ -3,20 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { closeIcon } from "../button/iconButton";
 import { IModalProps } from "./types"
-import { selectIsDeleteMode } from "./selectors";
+import { selectIsDeleteMode } from "../../store/selectors";
+import { useState } from 'react';
+import { isDeleteActions, isOpenModalActions } from '../../store/action-creator';
 
 export const ModalWindow: React.FC<IModalProps> = ({
-  mode,
-  cardId,
+  modal
 }) => {
 
   const dispatch = useDispatch();
+  const [children, setChildren] = useState<JSX.Element>(modal);
   const isDelete = useSelector(selectIsDeleteMode)
   
   const onClose = (): void => {
-    // isDelete &&
-    //   dispatch(ShowcaseActions.modeDelete());
-    // dispatch(ShowcaseActions.toggleModal());
+    isDelete
+      ? dispatch(isDeleteActions(false))
+      : dispatch(isOpenModalActions(false));
   }
 
   return (
@@ -30,7 +32,7 @@ export const ModalWindow: React.FC<IModalProps> = ({
           </div>
           <div className="body__content">
             {
-              
+              children
             }
           </div>
         </div>

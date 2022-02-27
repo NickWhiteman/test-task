@@ -10,7 +10,8 @@ export interface IShowcaseState {
   data: Data[]
   processedData: Data[]
   pageNumber: number
-  cardForDeleted?: number
+  cardForDeleted: number
+  idCard: number
   isOpenModal: boolean
   isLoading: boolean
   isDelete: boolean

@@ -2,7 +2,7 @@ import './style/style.css';
 import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectGetData, selectPageNumber } from "../../../components/modal-window/selectors";
+import { selectGetData, selectPageNumber } from "../../../store/selectors";
 import { pageNumberActions, processedDataActions } from "../../../store/action-creator";
 import { Data } from "../../../store/types";
 import { PageNumber } from "./PageNumber";
@@ -11,6 +11,8 @@ type PageProps = {
   numberPages: number[]
 }
 
+// Велосипед для отображения данных на страницах и нумерация страниц
+// но я посчитал это адекватным примером демонстрации построения условных конструкций
 export const PageNumbers: React.FC<PageProps> = React.memo(({
   numberPages
 }) => {
@@ -24,22 +26,22 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
   },[ currentPage, dataForPage ]);
 
   const dataOnPage = () => {
-    const endData = currentPage * 10;
-    let curr = currentPage;
-    let arrayDataForPage: Data[] = [];
+    const startData = currentPage * 10;//крайний элемент на странице
+    let curr = currentPage; // первый элемент на странице
+    let arrayDataForPage: Data[] = []; // массив готовых элементов
 
     if (currentPage === 0) {
       curr = 1;
       arrayDataForPage = dataForPage.filter(
         (data, index) =>
-          curr < index
-          && index < curr + 9
+          (curr - 1) <= index
+          && index <= curr + 9
       );
     } else {
       arrayDataForPage = dataForPage.filter(
         (data, index) =>
-          endData >= index
-          && index >= endData - 9
+          startData + 9 <= index
+          && index >= startData
       );
     }
 
@@ -59,7 +61,7 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
   }, []);
   
   const decrementPage = useCallback((pageNumber: number) => {
-    if (pageNumber === 1) {
+    if (pageNumber === 0) {
       return;
     }
 
@@ -75,12 +77,12 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
         numberPages.map((page, index) => {
 
           if (
-            currentPage <= index // проверяем текущую страницу
-            || index <= currentPage + 9 // новые страницы
+            currentPage <= index
+            || index <= currentPage + 9
             && !(index < currentPage)
-              && !(index > currentPage + 9) // скрытые индексы
+            && !(index > currentPage + 9)
           ) {
-            
+
             return (
               <span
                 key={`page_${index}`}

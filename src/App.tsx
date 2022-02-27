@@ -1,5 +1,5 @@
 import './style/style.css';
-import { selectIsOpenModal } from './components/modal-window/selectors';
+import { selectIsOpenModal } from './store/selectors';
 import { useSelector } from 'react-redux';
 import { Showcase } from './showcase/Showcase';
 
