@@ -1,14 +1,14 @@
-$modalHeadColor: #353D4B;
+$modalHeadColor: #36c0b9;
 $backgroundFooter: #F6F7F9;
 $labelColor: #818C99;
 
 @keyframes openModal {
     from{
-        margin-top: -100%;
+        width: 0;
         opacity: 0;
     } 
     to {
-        margin-top: 0;
+        width: 608px;
         opacity: 1;
     } 
 };
@@ -17,7 +17,6 @@ $labelColor: #818C99;
     animation-duration: .5s;
     animation-name: openModal;
     margin-top: 0;
-    margin-left: 30%;
     background-color: white;
     position: absolute;
     width: 608px;
@@ -34,20 +33,6 @@ $labelColor: #818C99;
         height: 100%;
     };
 
-    input {
-        background: #F9FAFC;
-        border: 2px solid #EBECEF;
-        box-sizing: border-box;
-        border-radius: 6px;
-        width: 480px;
-        height: 36px;
-    };
-
-    label {
-        margin-bottom: 4px;
-        color: $labelColor;
-    };
-
     .body__header {
         display: flex;
         justify-content: space-between;
@@ -59,16 +44,8 @@ $labelColor: #818C99;
         border-start-start-radius: 10px;
         position: relative;
         width: 100%;
-        margin-bottom: 36px;
+        margin-bottom: 23px;    
     };
-
-    .body__form {
-        margin-top: 10px;
-        width: 608px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
     .body__content {
         display: flex;
@@ -82,7 +59,7 @@ $labelColor: #818C99;
     };
 
     .header__close {
-        margin-right: 30px;
+        margin-right: 15px;
     };
 
     .content__inputField {
@@ -125,7 +102,8 @@ $labelColor: #818C99;
     };
 
     .footer__modal {
-        background-color:$backgroundFooter;
+        animation-duration: .5s;
+        animation-name: openModal;
         margin-top: 60px;
         height: 60px;
         display: flex; 
@@ -135,6 +113,18 @@ $labelColor: #818C99;
         border-end-end-radius: 10px;
         width: 608px;
     };
+
+    .body__content__card-title{
+        margin-bottom: 10px;
+    }
+
+    .body__content__card__body {
+        text-align: center;
+    }
+
+    .body__content__card-photo{
+        width: 80%;
+    }
 };
 
 .delete {

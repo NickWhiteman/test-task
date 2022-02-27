@@ -9,12 +9,6 @@ export const HeadShowcase: React.FunctionComponent = () => {
   return (
     <div className="showcase__head">
       <h3>Showcase</h3>
-      <Button
-        mode="button-primary"
-        children={"Сортировка по убыванию"}/>
-      <Button
-        mode="button-primary"
-        children={"Сортировка по возрастанию"}/>
     </div>
   )
 };

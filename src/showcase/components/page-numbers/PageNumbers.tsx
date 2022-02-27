@@ -21,30 +21,30 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
   const dataForPage: Data[]= useSelector(selectGetData);
   const currentPage = useSelector(selectPageNumber);
 
+  console.log("%c currentPage", "color: orange", currentPage);
+
+
   useEffect(() => {
     dataOnPage();
-  },[ currentPage, dataForPage ]);
+  },[ currentPage, dataForPage.length ]);
 
   const dataOnPage = () => {
-    const startData = currentPage * 10;//крайний элемент на странице
-    let curr = currentPage; // первый элемент на странице
     let arrayDataForPage: Data[] = []; // массив готовых элементов
-
+    
     if (currentPage === 0) {
-      curr = 1;
       arrayDataForPage = dataForPage.filter(
         (data, index) =>
-          (curr - 1) <= index
-          && index <= curr + 9
+          currentPage <= index
+          && index <= currentPage + 9
       );
     } else {
       arrayDataForPage = dataForPage.filter(
         (data, index) =>
-          startData + 9 <= index
-          && index >= startData
+          currentPage <= index
+          && index <= currentPage + 9
       );
     }
-
+    console.log("%c Data for page", "color: blue", arrayDataForPage);
     dispatch(processedDataActions(arrayDataForPage));
   };
 
@@ -68,34 +68,29 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
     dispatch(pageNumberActions(pageNumber - 1));
   }, []);
 
+  const renderNumbersPage = useCallback((currentPage: number) => {
+    const element: JSX.Element[] = []
+    for (let index = currentPage; index < 10 + currentPage; index++) {
+      element.push(
+        <span
+          key={`page_${index}`}
+          className={`page-number${currentPage === index ? "_current" : ""
+            }`}
+          onClick={() => pageHandler(index)}>
+          <PageNumber pageNumber={index} />
+        </span>
+      );
+    }
+    return element;
+  }, []);
+
   return (
     <div className="page-numbers">
       <span
         key={`page-decrement`}
         onClick={() => decrementPage(currentPage)}>--i</span>
       {
-        numberPages.map((page, index) => {
-
-          if (
-            currentPage <= index
-            || index <= currentPage + 9
-            && !(index < currentPage)
-            && !(index > currentPage + 9)
-          ) {
-
-            return (
-              <span
-                key={`page_${index}`}
-                className={`page-number${
-                  currentPage === index ? "_current" : ""
-                }`}
-                onClick={() => pageHandler(page)}>
-                <PageNumber pageNumber={page} />
-              </span>
-            )
-
-          }
-        })
+        renderNumbersPage(currentPage)
       }
       <span
         key={`page-increement`}
