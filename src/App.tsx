@@ -1,6 +1,7 @@
 import './style/style.css';
-import { selectIsOpenModal } from './store/selectors';
 import { useSelector } from 'react-redux';
+
+import { selectIsOpenModal } from './store/selectors';
 import { Showcase } from './showcase/Showcase';
 import { HeadShowcase } from './showcase/components/head-showcase/HeadShowcase';
 
