@@ -62,13 +62,6 @@ $labelColor: #818C99;
         margin-right: 15px;
     };
 
-    .content__inputField {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 28px;
-        align-content: stretch;
-    };
-
     .footer__modal {
         display: flex;
         justify-content: space-between;
@@ -90,10 +83,6 @@ $labelColor: #818C99;
         button{
             margin-right: 24px;
         };
-    };
-
-    .dashboard__button {
-        margin-right: 24px;
     };
 
     .body__delete {

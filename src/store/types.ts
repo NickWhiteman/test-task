@@ -12,6 +12,7 @@ export interface IShowcaseState {
   pageNumber: number
   cardForDeleted: number
   idCard: number
+  idAlbum: number
   isOpenModal: boolean
   isLoading: boolean
   isDelete: boolean

@@ -1,5 +1,6 @@
 import { Data } from "./types";
 import {
+  ALBUM_ID,
   CARDS_FOR_DELETED,
   CARD_ID,
   GET_DATA,
@@ -19,8 +20,7 @@ export type ShowcaseActions =
   | ReturnType<typeof processedDataActions>
   | ReturnType<typeof pageNumberActions>
   | ReturnType<typeof cardIdActions>
-
-
+  | ReturnType<typeof albumIdActions>
 
 export const getDataActions = (data: Data[]) =>
   ({
@@ -69,4 +69,9 @@ export const cardIdActions = (id: number) =>
     type: CARD_ID,
     payload: id
   } as const);
-    
+
+export const albumIdActions = (id: number) =>
+  ({
+    type: ALBUM_ID,
+    payload: id
+  } as const)

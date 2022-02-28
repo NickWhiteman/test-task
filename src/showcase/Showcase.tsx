@@ -6,10 +6,9 @@ import {
   selectGetCardsData,
   selectGetData,
   selectIsOpenModal,
-  selectPageNumber,
   selectIsLoading,
   selectIsDeleteMode,
-  selectDeleteId,
+  selectIdAlbum
 } from "../store/selectors";
 import {
   cardIdActions,
@@ -34,8 +33,10 @@ export const Showcase: React.FC = () => {
   const isLoading = useSelector(selectIsLoading);
   const isOpen = useSelector(selectIsOpenModal);
   const isDelete = useSelector(selectIsDeleteMode);
+  const idAlbum = useSelector(selectIdAlbum);
   const cards: Data[] = useSelector(selectGetCardsData);
   const dataAll: Data[] = useSelector(selectGetData);
+  const dataFromAlbum: Data[] = dataAll.filter(item => item.albumId === idAlbum)
 
   useEffect(() => {
     dispatch(isLoadingActions());
@@ -48,7 +49,7 @@ export const Showcase: React.FC = () => {
 
   const pageCounter = useCallback(() => {
     const countPage = [];
-    for (let i = 0; i <= dataAll.length / 10; i++) {
+    for (let i = 0; i <= dataFromAlbum.length / 10; i++) {
       countPage.push(i);
     }
     return countPage;
@@ -78,6 +79,7 @@ export const Showcase: React.FC = () => {
               } />
         }
         {
+          !isDelete &&
           isOpen &&
             <ModalWindow
               modal={

@@ -5,4 +5,4 @@ export const deletedData = (id: number, data: Data[]) => {
     if (card.id !== id)
       return card
   })
-}
+};
