@@ -1,6 +1,6 @@
 $backColorPanel: #FFFFFF;
 $backColorHead: #87e1e4;
-$backColorDashboard: #fcc8c8;
+$backColorShowcase: #fcc8c8;
 $darkScreenBackground: rgba(53, 61, 75, 0.2);
 
 * {
@@ -13,7 +13,7 @@ $darkScreenBackground: rgba(53, 61, 75, 0.2);
 }
 
 body {
-    background-color: $backColorDashboard;
+    background-color: $backColorShowcase;
 };
 
 .App {
@@ -40,7 +40,7 @@ body {
     };
 };
 
-.dark-screen{
+.dark-screen {
     position: absolute;
     z-index: 100;
     pointer-events: none;

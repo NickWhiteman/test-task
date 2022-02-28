@@ -23,3 +23,6 @@ export const selectPageNumber = (state: IRootState) =>
 
 export const selectIdCard = (state: IRootState) =>
   state.ShowcaseStore.idCard;
+
+export const selectIdAlbum = (state: IRootState) =>
+  state.ShowcaseStore.idAlbum;

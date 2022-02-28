@@ -2,7 +2,11 @@ import './style/style.css';
 import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectGetData, selectPageNumber } from "../../../store/selectors";
+import {
+  selectGetData,
+  selectIdAlbum,
+  selectPageNumber
+} from "../../../store/selectors";
 import { pageNumberActions, processedDataActions } from "../../../store/action-creator";
 import { Data } from "../../../store/types";
 import { PageNumber } from "./PageNumber";
@@ -18,10 +22,10 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
 }) => {
 
   const dispatch = useDispatch();
-  const dataForPage: Data[]= useSelector(selectGetData);
+  const data: Data[]= useSelector(selectGetData);
   const currentPage = useSelector(selectPageNumber);
-
-  console.log("%c currentPage", "color: orange", currentPage);
+  const idAlbum = useSelector(selectIdAlbum);
+  const dataForPage = data.filter(item => item.albumId === idAlbum);
 
 
   useEffect(() => {
@@ -44,7 +48,7 @@ export const PageNumbers: React.FC<PageProps> = React.memo(({
           && index <= currentPage + 9
       );
     }
-    console.log("%c Data for page", "color: blue", arrayDataForPage);
+
     dispatch(processedDataActions(arrayDataForPage));
   };
 
